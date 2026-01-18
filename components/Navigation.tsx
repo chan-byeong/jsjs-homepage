@@ -7,7 +7,7 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -21,22 +21,24 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#home" className="text-xl font-black tracking-tighter">JSJS <span className="text-gray-500">Workshop</span></a>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-sm border-b border-black/5 py-4' : 'bg-transparent py-6'}`}>
+      <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
+        <a href="#home" className="text-lg font-bold tracking-tight text-black flex items-center gap-2">
+          JSJS <span className="w-[1px] h-4 bg-black/20" /> <span className="text-gray-400 font-medium">WORKSHOP</span>
+        </a>
         
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden md:flex gap-10 items-center">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-semibold tracking-widest uppercase hover:text-white text-gray-400 transition-colors"
+              className="text-[11px] font-bold tracking-widest uppercase hover:text-black text-gray-400 transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="px-5 py-2 border border-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-            Join Us
+          <a href="#contact" className="ml-4 px-4 py-1.5 bg-black text-white text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800 transition-all">
+            Contact
           </a>
         </div>
       </div>

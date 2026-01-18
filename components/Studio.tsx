@@ -3,88 +3,62 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Studio: React.FC = () => {
-  const categories = [
-    {
-      title: "Wood & Fabrication",
-      desc: "목공 작업을 위한 기본 수공구 및 전동 공구, 가공을 위한 넓은 테이블"
-    },
-    {
-      title: "3D Printing",
-      desc: "Bamboo Lab 3D 프린터, 구조 테스트 및 부품 제작용 출력 환경"
-    },
-    {
-      title: "Electronics",
-      desc: "다양한 전압의 파워 서플라이, 납땜 및 센서, 모터 테스트 환경"
-    },
-    {
-      title: "Prototyping",
-      desc: "구조와 전기 시스템을 동시에 테스트할 수 있는 쾌적한 세팅"
-    }
+  const tools = [
+    { title: "WOODWORKING", desc: "Basic hand tools & power machines" },
+    { title: "3D PRINTING", desc: "FDM printers for prototyping" },
+    { title: "ELECTRONICS", desc: "Soldering, test tools, & components" },
+    { title: "COMPUTING", desc: "High-spec workstations & testing kits" }
   ];
 
   return (
-    <div className="py-32 px-6 max-w-7xl mx-auto border-t border-white/10 overflow-hidden">
-      <div className="flex flex-col lg:flex-row gap-20 items-start">
-        <div className="lg:w-1/2 sticky top-32">
-          <motion.p 
+    <div className="py-40 px-8 max-w-[1400px] mx-auto">
+      <div className="flex flex-col lg:flex-row gap-24">
+        <div className="lg:w-1/3">
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-gray-500 uppercase tracking-widest text-[10px] font-black mb-4"
           >
-            Fabrication Space
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-6xl font-black tracking-tighter mb-8"
-          >
-            Studio & Tool<br/>
-            <span className="text-gray-600 font-light text-4xl">작업실 · 장비</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400 mb-8 leading-relaxed font-light italic"
-          >
-            JSJS 작업실은 아이디어를 바로 손으로 옮길 수 있는 제작 중심의 환경을 갖추고 있습니다. 단순히 장비를 빌려주는 곳이 아닌, '실제로 만들어지는 공간'입니다.
-          </motion.p>
-          
-          <div className="space-y-12 mt-16">
-            {categories.map((cat, i) => (
-              <motion.div 
-                key={cat.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="group"
-              >
-                <h4 className="text-lg font-bold mb-2 group-hover:text-white transition-colors">{cat.title}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{cat.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          
-          <p className="mt-12 text-xs text-gray-600 border-l border-white/20 pl-4 py-2">
-            * 장비 사용은 워크샵 수강생 또는 사전 협의를 통해 진행됩니다.
-          </p>
+            <h2 className="text-5xl font-bold tracking-tighter uppercase mb-10 leading-none">Studio &<br/>Inventory</h2>
+            <p className="text-gray-500 text-sm leading-loose font-medium mb-12">
+              JSJS의 작업실은 아티스트가 장비의 제약 없이 자유롭게 실험할 수 있도록 설계되었습니다.<br/>
+              우리는 제작의 모든 과정이 원활하게 흘러갈 수 있도록 최상의 제작 환경을 상시 유지합니다.
+            </p>
+            
+            <div className="flex flex-col gap-1 w-full">
+              {tools.map((tool, i) => (
+                <div key={i} className="group border-b border-black/5 py-5 flex items-center justify-between">
+                  <span className="text-[11px] font-bold tracking-widest text-black group-hover:translate-x-2 transition-transform">{tool.title}</span>
+                  <span className="text-[10px] text-gray-400 font-medium">{tool.desc}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
-        <div className="lg:w-1/2 space-y-12">
+        <div className="lg:w-2/3 grid grid-cols-2 gap-8">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="aspect-square bg-gray-900 border border-white/10 group overflow-hidden"
+             initial={{ opacity: 0, scale: 0.98 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             className="aspect-[4/5] bg-gray-100 grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden"
           >
-            <img src="https://picsum.photos/seed/studio1/800/800" className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000" alt="studio" />
+            <img src="https://picsum.photos/seed/studio3/800/1000" className="w-full h-full object-cover" alt="studio inventory" />
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="aspect-[4/5] bg-gray-900 border border-white/10 group overflow-hidden"
-          >
-            <img src="https://picsum.photos/seed/studio2/800/1000" className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000" alt="studio" />
-          </motion.div>
+          <div className="flex flex-col gap-8">
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               transition={{ delay: 0.1 }}
+               className="aspect-[4/3] bg-gray-100 grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden"
+            >
+              <img src="https://picsum.photos/seed/studio4/800/600" className="w-full h-full object-cover" alt="studio interior" />
+            </motion.div>
+            <div className="flex-1 bg-black text-white p-10 flex flex-col justify-end">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase mb-4 text-gray-500">Notice</span>
+              <p className="text-sm font-medium leading-relaxed">
+                워크샵 수강생은 수업 기간 동안 작업실을 자유롭게 이용할 수 있으며, 개별 장비 사용 문의는 연락처를 통해 가능합니다.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
